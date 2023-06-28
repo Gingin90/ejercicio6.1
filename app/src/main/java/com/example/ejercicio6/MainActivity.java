@@ -8,32 +8,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.ejercicio6.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
-    @SuppressLint("MissingInflatedId")
+    private  ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+
         EditText textName;
         EditText textLastName;
         EditText textMail;
         EditText textPass;
 
-        textName = findViewById(R.id.textName);
-        textLastName = findViewById(R.id.textLastName);
-        textMail = findViewById(R.id.textMail);
-        textPass = findViewById(R.id.textPass);
-
-        Button btnCreate = findViewById(R.id.btnCreate);
-
-        btnCreate.setOnClickListener(new View.OnClickListener() {
+        binding.btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name = textName.getText().toString();
-                String lastname = textLastName.getText().toString();
-                String email = textMail.getText().toString();
-                String pass = textPass.getText().toString();
+                String name = binding.textName.getText().toString();
+                String lastname = binding.textLastName.getText().toString();
+                String email = binding.textMail.getText().toString();
+                String pass = binding.textPass.getText().toString();
 
                 if(name.isEmpty() || lastname.isEmpty() || email.isEmpty() || pass.isEmpty() || !email.contains("@") ) {
                     Toast.makeText(getBaseContext(), "Faltan campos por completar", Toast.LENGTH_SHORT).show();
