@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         EditText textMail;
         EditText textPass;
 
+        setContentView(binding.getRoot());
         binding.btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
